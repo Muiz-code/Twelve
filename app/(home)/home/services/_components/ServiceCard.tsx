@@ -52,7 +52,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true, amount: 0.2 }}
       onClick={onClick}
-      className={`relative group overflow-hidden cursor-pointer w-150 h-100 hover:rounded-[40px_0px_40px_40px] border-0  ${className}`}
+      className={`relative group overflow-hidden cursor-pointer w-full h-56 sm:h-72 md:h-96 hover:rounded-[40px_0px_40px_40px] border-0 transition-all duration-300 ${className}`}
     >
       {/* Background Image */}
       <Image
@@ -74,7 +74,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-8">
+      <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-6 lg:p-8">
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,11 +82,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           transition={{ duration: 0.6, delay: delay + 0.1 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 leading-tight">
             {title}
           </h3>
           {description && (
-            <p className="text-gray-300 text-sm md:text-base overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-300">
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base overflow-hidden max-h-0 group-hover:max-h-20 sm:group-hover:max-h-24 transition-all duration-300">
               {description}
             </p>
           )}

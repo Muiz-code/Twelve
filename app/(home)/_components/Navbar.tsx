@@ -55,7 +55,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden flex flex-col gap-1.5 relative w-8 h-8 z-50"
+              className="md:hidden flex flex-col gap-1.5 relative w-5 h-5 z-50"
             >
               <span
                 className={`w-full h-0.5 bg-white transition-all ${

@@ -36,15 +36,15 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full pb-20">
-      <div className="mx-auto max-w-7xl pt-10 w-full flex flex-col gap-6">
+    <div className="min-h-screen w-full pb-12 md:pb-20 px-2 md:px-0">
+      <div className="mx-auto pt-3 md:pt-10 w-full flex flex-col gap-4 md:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="flex w-full items-center justify-between gap-5 h-17.5 "
         >
-          <motion.p className="text-[13px] md:text-[16px] w-19 h-6 font-light text-white leading-tight uppercase">
+          <motion.p className="text-lg md:text-base w-auto h-6 font-light text-white leading-tight uppercase">
             Services
           </motion.p>
 
@@ -57,8 +57,8 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex items-start gap-4">
-              <h1 className="text-[40px]  md:text-[80px] font-semibold  leading-tight">
+            <div className="flex items-start gap-2 md:gap-4">
+              <h1 className="text-[25px] md:text-[80px] font-bold md:font-semibold leading-tight">
                 OUR{" "}
                 <span
                   style={{
@@ -70,14 +70,14 @@ const ServicesPage = () => {
                 </span>
               </h1>
             </div>
-            <h1 className="text-[40px] md:text-[80px] font-semibold  leading-tight">
+            <h1 className="text-[25px] md:text-[80px] font-bold md:font-semibold leading-tight">
               FOR YOUR GROWING BUSINESS
             </h1>
           </motion.div>
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-8 sm:mt-10 md:mt-12 w-full">
           {services.map((service, index) => (
             <div key={service.id} className="flex justify-between">
               <ServiceCard
@@ -99,8 +99,8 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex items-start gap-4 w-[1240px]">
-              <h1 className="text-[40px]  md:text-[80px] font-semibold  leading-tight">
+            <div className="flex items-start w-full px-0 md:px-[40px] py-8 md:py-[120px]">
+              <h1 className="text-[27px] md:text-[80px] font-bold md:font-semibold leading-tight">
                 &quot;Good design is like a{" "}
                 <span
                   style={{
