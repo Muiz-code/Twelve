@@ -48,7 +48,7 @@ const FaqsPage = () => {
           </p>
           <div className="flex-1 h-px bg-[#FFF7EB40]"></div>
         </motion.div>
-        <div className="md:pl-[80px] pl-0 flex flex-col gap-3 md:gap-[56px]">
+        <div className="md:pl-[80px] pl-2 flex flex-col gap-3 md:gap-[56px]">
           {/* Title */}
           <motion.div
             className="w-full text-[#FFF7EB]"
