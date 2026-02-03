@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Loader from "@/app/(home)/_components/Loader";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/(home)/_components/ui/button";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ServicesPage from "./services/page";
 import Work from "./works/page";
 import Process from "./process/page";
 import Testimonial from "./testimonial/page";
+import Faqs from "./faqs/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -170,6 +171,11 @@ const LandingPage = () => {
       </section>
       <section className="w-full">
         <Testimonial />
+      </section>
+      <section className="text-red-500">missing</section>
+
+      <section className="w-full">
+        <Faqs />
       </section>
     </div>
   );

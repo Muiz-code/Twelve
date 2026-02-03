@@ -10,6 +10,17 @@ const Testimonial = () => {
   const { photo1 } = images();
   const [currentIndex, setCurrentIndex] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const testimonials = [
     {
@@ -62,9 +73,15 @@ const Testimonial = () => {
     },
   ];
 
-  // Show 2 cards at a time, so we increment by 2
-  const cardsPerView = 2;
-  const maxIndex = Math.ceil(testimonials.length / cardsPerView);
+  // Group testimonials for desktop view
+  const groupedT = [];
+  if (!isMobile) {
+    for (let i = 0; i < testimonials.length; i += 2) {
+      groupedT.push(testimonials.slice(i, i + 2));
+    }
+  }
+
+  const maxIndex = isMobile ? testimonials.length : groupedT.length;
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % maxIndex);
@@ -72,7 +89,7 @@ const Testimonial = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? maxIndex - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev - 1 + maxIndex) % maxIndex);
     resetAutoPlay();
   };
 
@@ -105,7 +122,7 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full pb-12 md:pb-20 px-4 sm:px-6 md:px-0">
+    <div className="min-h-screen w-full pb-5 md:pb-0 px-2 sm:px-6 md:px-0">
       <div className="mx-auto pt-6 md:pt-10 w-full flex flex-col gap-2 md:gap-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -154,7 +171,7 @@ const Testimonial = () => {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="mt-0 md:mt-0 relative w-full">
+        <div className="mt-0 md:mt-0 px-[0px] relative w-full">
           {/* Top Section with Arrows */}
           <div className="flex items-center justify-end mb-8">
             {/* Navigation Arrows */}
@@ -178,31 +195,34 @@ const Testimonial = () => {
             </div>
           </div>
 
-          {/* Testimonial Cards Slider - 2 Cards Per View */}
-          <div className="w-full overflow-x-hidden">
+          {/* Testimonial Cards Slider - Responsive */}
+          <div className="relative w-full overflow-hidden px-2 md:px-0">
             <motion.div
-              className="flex w-full"
-              style={{ gap: "24px" }}
-              animate={{
-                x: -currentIndex * 100 + "%",
-              }}
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  style={{ minWidth: "calc((100% - 40px) / 2)" }}
-                  className="flex-shrink-0"
-                >
-                  <TestimonialCard
-                    name={testimonial.name}
-                    company={testimonial.company}
-                    quote={testimonial.quote}
-                    image={testimonial.image}
-                    delay={index * 0.05}
-                  />
-                </div>
-              ))}
+              {isMobile
+                ? testimonials.map((testimonial) => (
+                    <div key={testimonial.id} className="w-full flex-shrink-0">
+                      <TestimonialCard {...testimonial} />
+                    </div>
+                  ))
+                : groupedT.map((group, groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className="w-full flex-shrink-0 flex gap-6"
+                    >
+                      {group.map((testimonial) => (
+                        <div
+                          key={testimonial.id}
+                          className="w-full md:w-[calc(50%-12px)]"
+                        >
+                          <TestimonialCard {...testimonial} />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
             </motion.div>
           </div>
 

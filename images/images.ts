@@ -15,6 +15,7 @@ import greenlife from "./assets/Greenlife.png";
 import techconnect from "./assets/Techconnect.png";
 import process from "./assets/Process.png";
 import colum from "./assets/Colum.png";
+import arrow from "./assets/arrow.png";
 
 export const images = () => {
   return {
@@ -35,5 +36,6 @@ export const images = () => {
     techconnect,
     process,
     colum,
+    arrow,
   };
 };

@@ -47,7 +47,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex-shrink-0 w-[300px] md:w-[600px] h-[352px] p-6 md:p-8 rounded-xl border border-[#4AA8C4]/30 bg-[#0a1419]/40 backdrop-blur-sm hover:border-[#4AA8C4]/60 transition-all duration-300 group"
+      className="shrink-0 w-75 md:w-150 md:h-88 h-90 p-6 md:p-8 rounded-xl border border-[#4AA8C4]/30 bg-[#0a1419]/40 backdrop-blur-sm hover:border-[#4AA8C4]/60 transition-all duration-300 group flex flex-col justify-between"
     >
       {/* Quote Mark */}
       <div className="mb-6 w-[32px] h-[24px]">
