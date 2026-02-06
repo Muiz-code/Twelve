@@ -270,7 +270,7 @@ const Contact = () => {
       {/* Contact Information Section */}
       <div className="w-full bg-[#0a1419] px-3 md:px-25 py-20 md:py-15">
         <motion.div
-          className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-7"
+          className="flex flex-col md:flex-row items-start md:justify-between md:items-center gap-10 md:gap-7"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -300,7 +300,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full"></div>
+            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full hidden md:flex"></div>
             <div className="flex flex-col gap-3">
               <p className="text-[#999] text-sm uppercase tracking-wider">
                 Email Address
@@ -319,7 +319,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full"></div>
+            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full hidden md:flex"></div>
             <div className="flex flex-col gap-3">
               <p className="text-[#999] text-sm uppercase tracking-wider">
                 Location
