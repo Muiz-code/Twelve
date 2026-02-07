@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import Loader from "./Loader";
 
 interface NavItem {
   label: string;
@@ -18,19 +19,47 @@ const NAV_ITEMS: NavItem[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Don't show loader if already on home page
+    if (pathname === "/" || pathname === "/home") {
+      return;
+    }
+    setIsNavigating(true);
+    setTimeout(() => {
+      router.push("/home");
+      // Reset after navigation
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 500);
+    }, 1500);
+  };
+
   return (
     <>
+      {/* Full Screen Loader Overlay */}
+      {isNavigating && (
+        <div className="fixed inset-0 z-[100]">
+          <Loader />
+        </div>
+      )}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-none backdrop-blur-md px-4 md:px-25 md:py-2.5 w-full">
         <div className=" md:w-340 w-full">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link
+              href="/home"
+              onClick={handleLogoClick}
+              className="flex items-center gap-2"
+            >
               <span className="text-[28px] font-bold text-white">
                 TWELVE<span className="text-cyan-400">®</span>
               </span>
