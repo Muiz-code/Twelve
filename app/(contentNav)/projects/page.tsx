@@ -34,18 +34,18 @@ const SPAN_CLASSES_DESKTOP: Record<number, string> = {
 // Function to generate random spans for mobile (2 columns)
 const generateMobileSpans = (count: number): number[] => {
   if (count === 0) return [];
-  
+
   const TOTAL_COLS = 2;
-  
+
   if (count === 1) return [2]; // Full width
-  
+
   const spans: number[] = [];
   let remainingCols = Math.ceil(count / TOTAL_COLS) * TOTAL_COLS;
   let remainingCards = count;
-  
+
   while (remainingCards > 0) {
     let span: number;
-    
+
     if (remainingCards === 1) {
       span = remainingCols;
     } else {
@@ -56,7 +56,7 @@ const generateMobileSpans = (count: number): number[] => {
         span = Math.min(2, remainingCols);
       }
     }
-    
+
     // Ensure valid distribution
     const afterThis = remainingCols - span;
     const cardsAfter = remainingCards - 1;
@@ -66,13 +66,13 @@ const generateMobileSpans = (count: number): number[] => {
     if (cardsAfter > 0 && afterThis > cardsAfter * 2) {
       span = Math.min(2, remainingCols - cardsAfter);
     }
-    
+
     span = Math.max(1, Math.min(span, 2, remainingCols));
     spans.push(span);
     remainingCols -= span;
     remainingCards--;
   }
-  
+
   return spans.sort(() => Math.random() - 0.5);
 };
 
@@ -251,9 +251,9 @@ const Projects = () => {
   );
 
   const scrollToProjects = () => {
-    const projectsGrid = document.getElementById('projects-grid');
+    const projectsGrid = document.getElementById("projects-grid");
     if (projectsGrid) {
-      projectsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      projectsGrid.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -357,8 +357,10 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           {paginatedProjects.map((project, index) => {
-            const mobileSpanClass = SPAN_CLASSES_MOBILE[mobileSpans[index]] || "col-span-1";
-            const desktopSpanClass = SPAN_CLASSES_DESKTOP[desktopSpans[index]] || "lg:col-span-1";
+            const mobileSpanClass =
+              SPAN_CLASSES_MOBILE[mobileSpans[index]] || "col-span-1";
+            const desktopSpanClass =
+              SPAN_CLASSES_DESKTOP[desktopSpans[index]] || "lg:col-span-1";
 
             return (
               <motion.div
