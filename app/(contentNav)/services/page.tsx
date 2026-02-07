@@ -110,7 +110,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               onViewportEnter={() => setActiveService(service.id)}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: false, amount: 0.1 }}
+              viewport={{ once: false, amount: 0.5 }}
               className="relative"
             >
               {/* Service Item */}
