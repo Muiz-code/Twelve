@@ -2,35 +2,41 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import { useRouter } from "next/navigation";
 import ServiceCard from "@/app/(home)/home/services/_components/ServiceCard";
 import { images } from "@/images/images";
 
 const ServicesPage = () => {
   const { brand, digital, social, web } = images();
+  const router = useRouter();
 
   const services = [
     {
       id: 1,
+      slug: "branding-identity",
       title: "Branding and Identity",
-      description: "Create stunning, responsive websites",
+      description: "Build a strong brand identity that resonates with your audience",
       image: brand,
     },
     {
       id: 2,
-      title: "Branding and Identity",
-      description: "Build a strong brand identity",
+      slug: "digital-marketing",
+      title: "Digital Marketing",
+      description: "Drive traffic and increase brand awareness with targeted campaigns",
       image: digital,
     },
     {
       id: 3,
-      title: "Digital Marketing",
-      description: "Drive traffic and increase brand awareness",
+      slug: "social-media-marketing",
+      title: "Social Media Marketing",
+      description: "Craft engaging social media campaigns that convert followers into customers",
       image: social,
     },
     {
       id: 4,
-      title: "Consulting",
-      description: "Expert guidance for your business",
+      slug: "web-design-development",
+      title: "Web Design & Development",
+      description: "Create stunning, responsive websites that drive conversions",
       image: web,
     },
   ];
@@ -85,7 +91,7 @@ const ServicesPage = () => {
                 title={service.title}
                 description={service.description}
                 delay={index * 0.1}
-                onClick={() => console.log(`${service.title} clicked`)}
+                onClick={() => router.push(`/services/${service.slug}`)}
                 className="w-full"
               />
             </div>

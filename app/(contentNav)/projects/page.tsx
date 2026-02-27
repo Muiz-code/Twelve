@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import Loader from "@/app/_components/Loader";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ContentHero from "@/app/(contentNav)/_components/ContentHero";
@@ -219,21 +218,12 @@ const PROJECTS: Project[] = [
 ];
 
 const Projects = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All Projects");
   const [projectPage, setProjectPage] = useState(0);
   const { projectBg, grow } = images();
 
   // Pagination settings for projects
   const PROJECTS_PER_PAGE = 6;
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const filteredProjects =
     activeCategory === "All Projects"
@@ -284,10 +274,6 @@ const Projects = () => {
       desktopSpans: generateDesktopSpans(paginatedProjects.length),
     };
   }, [paginatedProjects.length]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <div className="bg-[#0a1419]">

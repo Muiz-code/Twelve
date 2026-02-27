@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Loader from "@/app/_components/Loader";
 import { Button } from "@/app/_components/ui/button";
@@ -15,6 +16,7 @@ import Faqs from "./faqs/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
   const { photo1, logo1, logo2, logo3, logo4, logo5, logo6 } = images();
 
   useEffect(() => {
@@ -100,7 +102,7 @@ const LandingPage = () => {
                 >
                   <Button
                     className="w-full p-[20px_85px] text-[#14181B] bg-[#FFF7EB] text-sm md:text-base font-bold rounded-[100px] hover:scale-102 hover:bg-none hover:text-white hover:border-2 transition-transform duration-300 cursor-pointer"
-                    onClick={() => console.log("Get Started clicked")}
+                    onClick={() => router.push("/contact")}
                   >
                     Get Started
                   </Button>

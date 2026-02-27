@@ -39,7 +39,7 @@ export default function ContentHero({
         backgroundPosition: "center",
       }}
     >
-      <div className="md:px-[100px_64px] px-5 w-full md:h-full h-auto flex flex-col justify-center">
+      <div className="md:pl-[100px] md:pr-16 px-5 w-full md:h-full h-auto flex flex-col justify-center">
         {/* Overlay */}
         <div
           className="absolute inset-0"
@@ -57,7 +57,7 @@ export default function ContentHero({
               {breadcrumb.home} / {breadcrumb.current}
             </div>
             <motion.div
-              className="w-245.5 text-[#FFF7EB] flex flex-col"
+              className="w-full text-[#FFF7EB] flex flex-col"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}

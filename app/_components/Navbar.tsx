@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Loader from "./Loader";
@@ -17,11 +17,28 @@ const NAV_ITEMS: NavItem[] = [
   { label: "CONTACT", href: "/contact" },
 ];
 
+const SLOW_NAV_THRESHOLD = 3000;
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    // Navigation completed — clear any pending timer and hide loader
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = null;
+    setIsNavigating(false);
+  }, [pathname]);
+
+  const startSlowNavTimer = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      setIsNavigating(true);
+    }, SLOW_NAV_THRESHOLD);
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,25 +46,21 @@ export default function Navbar() {
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Don't show loader if already on home page
-    if (pathname === "/" || pathname === "/home") {
-      return;
-    }
-    setIsNavigating(true);
-    setTimeout(() => {
-      router.push("/home");
-      // Reset after navigation
-      setTimeout(() => {
-        setIsNavigating(false);
-      }, 500);
-    }, 1500);
+    if (pathname === "/home") return;
+    startSlowNavTimer();
+    router.push("/home");
+  };
+
+  const handleNavClick = (href: string) => {
+    if (pathname === href || pathname.startsWith(href + "/")) return;
+    startSlowNavTimer();
   };
 
   return (
     <>
       {/* Full Screen Loader Overlay */}
       {isNavigating && (
-        <div className="fixed inset-0 z-[100]">
+        <div className="fixed inset-0 z-100">
           <Loader />
         </div>
       )}
@@ -75,6 +88,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => handleNavClick(item.href)}
                     className={`transition text-sm font-medium ${
                       isActive
                         ? "text-cyan-400"
@@ -143,7 +157,7 @@ export default function Navbar() {
                     ? "text-cyan-400"
                     : "text-gray-300 hover:text-cyan-400"
                 }`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => { handleNavClick(item.href); setIsOpen(false); }}
               >
                 {item.label}
               </Link>

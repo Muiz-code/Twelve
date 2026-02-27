@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Loader from "@/app/_components/Loader";
+import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { images } from "@/images/images";
 import ContentHero from "@/app/(contentNav)/_components/ContentHero";
@@ -11,19 +11,20 @@ import FaqItem from "@/app/(home)/home/faqs/_components/FaqItem";
 
 interface Service {
   id: number;
+  slug: string;
   title: string;
   description: string;
   image: StaticImageData;
 }
 
 const Services = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [activeService, setActiveService] = useState<number | null>(1);
   const { servicesBg, brand, digital, social, web, grow } = images();
 
   const SERVICES: Service[] = [
     {
       id: 1,
+      slug: "branding-identity",
       title: "Branding & Identity",
       description:
         "We create distinctive brand identities that capture your essence and resonate with your target audience, building lasting connections through strategic design.",
@@ -31,6 +32,7 @@ const Services = () => {
     },
     {
       id: 2,
+      slug: "digital-marketing",
       title: "Digital Marketing",
       description:
         "We develop customized digital marketing strategies that align with your business goals, ensuring maximum impact and ROI that suits your business needs and brand identity for the targeted market audience.",
@@ -38,6 +40,7 @@ const Services = () => {
     },
     {
       id: 3,
+      slug: "social-media-marketing",
       title: "Social Media Marketing",
       description:
         "We craft engaging social media campaigns that build community, drive engagement, and convert followers into loyal customers across all major platforms.",
@@ -45,6 +48,7 @@ const Services = () => {
     },
     {
       id: 4,
+      slug: "content-marketing",
       title: "Content Marketing",
       description:
         "We create compelling content strategies that tell your brand story, attract your ideal audience, and establish your authority in your industry.",
@@ -52,53 +56,33 @@ const Services = () => {
     },
     {
       id: 5,
-      title: "Web Design Development",
+      slug: "web-design-development",
+      title: "Web Design & Development",
       description:
         "We design and develop stunning, responsive websites that provide seamless user experiences and drive conversions for your business.",
       image: web,
     },
     {
       id: 6,
-      title: "Mobile App Design Development",
+      slug: "mobile-app-development",
+      title: "Mobile App Design & Development",
       description:
         "We create intuitive mobile applications with beautiful interfaces that engage users and deliver exceptional experiences on iOS and Android.",
-      image: web,
+      image: grow,
     },
   ];
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
     <div className="bg-[#0a1419]">
-      <div
-        style={{
-          backgroundImage: `url(${
-            typeof servicesBg === "string" ? servicesBg : servicesBg.src
-          })`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <ContentHero
-          breadcrumb={{ home: "Home", current: "Services" }}
-          mainHeading="SERVICES"
-          headingLine2Highlight="WE"
-          headingLine2End="PROVIDE"
-          backgroundImage={servicesBg}
-          sectionNumber="01"
-          sectionLabel="SERVICES"
-        />
-      </div>
+      <ContentHero
+        breadcrumb={{ home: "Home", current: "Services" }}
+        mainHeading="SERVICES"
+        headingLine2Highlight="WE"
+        headingLine2End="PROVIDE"
+        backgroundImage={servicesBg}
+        sectionNumber="01"
+        sectionLabel="SERVICES"
+      />
 
       {/* Services List Section */}
       <div className="min-h-auto w-full bg-[#0a1419] px-4 md:px-25 py-10 md:py-30">
@@ -122,6 +106,7 @@ const Services = () => {
                   <div className="flex items-start justify-between gap-6">
                     {/* Left Side - Title and Description */}
                     <div className="flex-1 md:max-w-[60%]">
+                      <Link href={`/services/${service.slug}`}>
                       <motion.h3
                         className={`text-xl md:text-3xl font-medium transition-colors duration-300 ${
                           activeService === service.id
@@ -131,6 +116,7 @@ const Services = () => {
                       >
                         {service.title}
                       </motion.h3>
+                      </Link>
 
                       {/* Description - Only visible when active */}
                       <AnimatePresence>
@@ -313,7 +299,7 @@ const ProcessSection = () => {
             {/* Title */}
             <h3
               className={`text-sm md:text-base text-center font-semibold mb-2 transition-colors duration-300 ${
-                activeStep === step.id ? "text-[#FFF7EB]" : "text-[#FFF7EB]"
+                activeStep === step.id ? "text-[#4AA8C4]" : "text-[#FFF7EB]"
               }`}
             >
               {step.title}

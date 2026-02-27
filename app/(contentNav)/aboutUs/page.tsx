@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Loader from "@/app/_components/Loader";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ContentHero from "@/app/(contentNav)/_components/ContentHero";
@@ -11,21 +9,7 @@ import ValuePage from "./value/page";
 import Milestones from "./milestones/page";
 
 const AboutUs = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const { aboutBg, arrow, AboutUsImg1, AboutUsImg2 } = images();
-
-  useEffect(() => {
-    // Simulate page load - adjust timing as needed
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <div className="bg-[#0a1419] h-full w-full">
