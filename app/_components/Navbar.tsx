@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Loader from "./Loader";
@@ -17,28 +17,11 @@ const NAV_ITEMS: NavItem[] = [
   { label: "CONTACT", href: "/contact" },
 ];
 
-const SLOW_NAV_THRESHOLD = 3000;
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    // Navigation completed — clear any pending timer and hide loader
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = null;
-    setIsNavigating(false);
-  }, [pathname]);
-
-  const startSlowNavTimer = () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setIsNavigating(true);
-    }, SLOW_NAV_THRESHOLD);
-  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -46,21 +29,25 @@ export default function Navbar() {
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (pathname === "/home") return;
-    startSlowNavTimer();
-    router.push("/home");
-  };
-
-  const handleNavClick = (href: string) => {
-    if (pathname === href || pathname.startsWith(href + "/")) return;
-    startSlowNavTimer();
+    // Don't show loader if already on home page
+    if (pathname === "/" || pathname === "/home") {
+      return;
+    }
+    setIsNavigating(true);
+    setTimeout(() => {
+      router.push("/home");
+      // Reset after navigation
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 500);
+    }, 1500);
   };
 
   return (
     <>
       {/* Full Screen Loader Overlay */}
       {isNavigating && (
-        <div className="fixed inset-0 z-100">
+        <div className="fixed inset-0 z-[100]">
           <Loader />
         </div>
       )}
@@ -88,7 +75,6 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => handleNavClick(item.href)}
                     className={`transition text-sm font-medium ${
                       isActive
                         ? "text-cyan-400"
@@ -101,9 +87,9 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Desktop Login Button */}
+            {/* Desktop Get Started Button */}
             <button className="hidden md:block border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition font-medium text-sm">
-              Login
+              Get Started
             </button>
 
             {/* Mobile Menu Button */}
@@ -157,14 +143,14 @@ export default function Navbar() {
                     ? "text-cyan-400"
                     : "text-gray-300 hover:text-cyan-400"
                 }`}
-                onClick={() => { handleNavClick(item.href); setIsOpen(false); }}
+                onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             );
           })}
           <button className="border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition font-medium mt-8">
-            Login
+            Get Started
           </button>
         </div>
       </div>

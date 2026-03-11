@@ -1,15 +1,17 @@
 import matrix from "./assets/Matix.png";
 import photo1 from "./assets/Photo 1.png";
+import jaylead from "./assets/jaylead.png";
+import logo11 from "./assets/Logo 11.png";
 import logo1 from "./assets/Logo 1.png";
 import logo2 from "./assets/Logo 2.png";
 import logo3 from "./assets/Logo 3.png";
 import logo4 from "./assets/Logo 4.png";
 import logo5 from "./assets/Logo 5.png";
 import logo6 from "./assets/Logo 6.png";
-import brand from "./assets/bRANDS.jpg";
-import digital from "./assets/Digital.jpg";
-import social from "./assets/Social Media Manager.jpg";
-import web from "./assets/web developer.jpg";
+import brand from "./assets/Script to screen.jpeg";
+import digital from "./assets/Edit my voice.jpeg";
+import social from "./assets/Signatuere video package.jpeg";
+import web from "./assets/Video course creation.jpeg";
 import travel from "./assets/Travel.png";
 import greenlife from "./assets/Greenlife.png";
 import techconnect from "./assets/Techconnect.png";
@@ -32,6 +34,8 @@ export const images = () => {
   return {
     matrix,
     photo1,
+    jaylead,
+    logo11,
     logo1,
     logo2,
     logo3,

@@ -100,14 +100,7 @@ const Footer = () => {
                     Testimonials
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    className="hover:text-white transition-colors"
-                  >
-                    Our Pricing
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     href="/portfolio"
@@ -124,14 +117,6 @@ const Footer = () => {
                     Work with Us
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/blog"
-                    className="hover:text-white transition-colors"
-                  >
-                    Blog Articles
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -141,26 +126,26 @@ const Footer = () => {
               <ul className="space-y-4 text-sm text-gray-400">
                 <li>
                   <Link
-                    href="/services/branding"
+                    href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    Branding and Identity
+                    Script-to-Screen
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/digital-marketing"
+                    href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    Digital Marketing
+                    Edit My Voice
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/social-media"
+                    href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    Social Media Marketing
+                    Signature Video Package
                   </Link>
                 </li>
                 <li>
@@ -168,23 +153,7 @@ const Footer = () => {
                     href="/services/web-development"
                     className="hover:text-white transition-colors"
                   >
-                    Web Design & Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/content-marketing"
-                    className="hover:text-white transition-colors"
-                  >
-                    Content Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/mobile-app"
-                    className="hover:text-white transition-colors"
-                  >
-                    Mobile App Development
+                    Video Course Creation
                   </Link>
                 </li>
               </ul>
@@ -192,25 +161,16 @@ const Footer = () => {
 
             {/* Contact Section */}
             <div className="col-span-1">
-              <h3 className="font-bold text-base mb-4">Contact</h3>
+              <h3 className="font-bold text-base mb-4"> Work with Us</h3>
               <ul className="space-y-4 text-sm text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">
+                {/* <li className="hover:text-white transition-colors cursor-pointer">
                   Phone Number
-                </li>
+                </li> */}
                 <li className="hover:text-white transition-colors cursor-pointer">
-                  Email Address
-                </li>
-                <li className="hover:text-white transition-colors cursor-pointer">
-                  Company Location
+                  adenikeomope86@gmail.com
                 </li>
                 <li className="hover:text-white transition-colors cursor-pointer">
                   Social Media
-                </li>
-                <li className="hover:text-white transition-colors cursor-pointer">
-                  Customer Service
-                </li>
-                <li className="hover:text-white transition-colors cursor-pointer">
-                  Message Submission
                 </li>
               </ul>
             </div>

@@ -8,25 +8,40 @@ const FaqsPage = () => {
 
   const faqs = [
     {
-      question: "What services does Twelve provide?",
-      answer:
-        "We provide a wide range of services including web design, web development, branding, social media marketing, and SEO.",
+      question: "How Do I Know Twelve's Solutions are for Me?",
+      answer: [
+        "You’re posting, but it’s not leading to growth, trust, or leads.",
+        "Your videos feel generic or not like you at all.",
+        "You’re exhausted trying to keep up with",
+        "You’re exhausted trying to keep up with content that doesn’t move the needle",
+        "You know video works but you don’t want to waste time guessing how.",
+      ],
     },
     {
-      question: "How long does it take to complete?",
-      answer:
-        "We harness the power of social media platforms to expand your reach, engage your audience, and drive brand awareness towards your business' profitable future.",
+      question: "How Do I Know Twelve's Solutions are for Me?",
+      answer: [
+        "You’re posting, but it’s not leading to growth, trust, or leads.",
+        "Your videos feel generic or not like you at all.",
+        "You’re exhausted trying to keep up with",
+        "You’re exhausted trying to keep up with content that doesn’t move the needle",
+        "You know video works but you don’t want to waste time guessing how.",
+      ],
     },
-    {
-      question: "What is the cost of your services?",
-      answer:
-        "Our pricing varies depending on the scope of the project. We offer customized quotes to fit your specific needs and budget.",
-    },
-    {
-      question: "How do I get started with Twelve?",
-      answer:
-        "Getting started is easy! Simply contact us through our website to schedule a free consultation. We'll discuss your project and provide a detailed proposal.",
-    },
+    // {
+    //   question: "How long does it take to complete?",
+    //   answer:
+    //     "We harness the power of social media platforms to expand your reach, engage your audience, and drive brand awareness towards your business' profitable future.",
+    // },
+    // {
+    //   question: "What is the cost of your services?",
+    //   answer:
+    //     "Our pricing varies depending on the scope of the project. We offer customized quotes to fit your specific needs and budget.",
+    // },
+    // {
+    //   question: "How do I get started with Twelve?",
+    //   answer:
+    //     "Getting started is easy! Simply contact us through our website to schedule a free consultation. We'll discuss your project and provide a detailed proposal.",
+    // },
   ];
 
   const handleItemClick = (index: number) => {
@@ -81,7 +96,13 @@ const FaqsPage = () => {
               <FaqItem
                 key={index}
                 question={faq.question}
-                answer={faq.answer}
+                answer={
+                  <ul>
+                    {faq.answer.map((ans, idx) => (
+                      <li key={idx}>{ans}</li>
+                    ))}
+                  </ul>
+                }
                 isOpen={openIndex === index}
                 onClick={() => handleItemClick(index)}
               />

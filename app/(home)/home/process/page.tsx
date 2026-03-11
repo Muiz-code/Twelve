@@ -15,28 +15,28 @@ const Process = () => {
   const processSteps = [
     {
       number: 1,
-      title: "Discovery & Research",
+      title: "Book Your Free Clarity Call",
       description:
-        "We conduct research to gather insights, analyze competitors, and identify opportunities that suit your product branding.",
+        "We’ll talk through your goals, your brand voice, and the kind of personal branding videos you need. No pressure. Just clarity.",
     },
     {
       number: 2,
-      title: "Ideation & Concept",
+      title: "We Script, Shoot, or Edit - You Just Show Up",
       description:
-        "We brainstorm ideas and explore different concepts that align with the project goals and meet your target customers' needs.",
+        "Depending on your package, we’ll handle everything from scripting to coaching, editing to repurposing. We guide you through it or do it all for you.",
     },
     {
       number: 3,
-      title: "Design & Development",
+      title: "You Launch Content That Lands",
       description:
-        "We transform the chosen concept into tangible designs. Create solutions, wireframes, or prototypes to visualize the ideas.",
+        "We deliver scroll-stopping personal brand videos you’re proud to post because they feel like you and connect with the people who need to hear you.",
     },
-    {
-      number: 4,
-      title: "Finalization & Delivery",
-      description:
-        "We fine-tune and prepare the final deliverables, ensuring they are polished and ready for implementation within our agreed timeline.",
-    },
+    // {
+    //   number: 4,
+    //   title: "Finalization & Delivery",
+    //   description:
+    //     "We fine-tune and prepare the final deliverables, ensuring they are polished and ready for implementation within our agreed timeline.",
+    // },
   ];
 
   // Use hover if set, otherwise use active (from scroll)
@@ -71,19 +71,19 @@ const Process = () => {
             >
               <div className="flex items-start gap-2 md:gap-4">
                 <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-[80px] font-bold md:font-semibold leading-tight">
-                  HOW{" "}
+                  WORKING <br />
                   <span
                     style={{
                       WebkitTextStroke: "2px white",
                       color: "transparent",
                     }}
                   >
-                    WE RUN{" "}
+                    WITH US{" "}
                   </span>
                 </h1>
               </div>
               <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-[80px] font-bold md:font-semibold leading-tight">
-                OUR PROCESS
+                IS SIMPLE
               </h1>
             </motion.div>
 

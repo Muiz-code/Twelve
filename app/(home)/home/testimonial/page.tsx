@@ -7,7 +7,7 @@ import TestimonialCard from "@/app/(home)/home/testimonial/_components/Testimoni
 import { images } from "@/images/images";
 
 const Testimonial = () => {
-  const { photo1 } = images();
+  const { logo1, jaylead, logo2, logo3, logo4, logo5, logo6 } = images();
   const [currentIndex, setCurrentIndex] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -25,51 +25,59 @@ const Testimonial = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Jane",
-      company: "Emporium & Co.",
+      name: "Adetunji",
+      company: "Jaylead",
       quote:
-        "Twelve's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
-      image: photo1,
+        "Twelve's team delivered exceptional work on our project management course, handling the full production pipeline, from scripting to final video, across 90+ videos. Truly above and beyond.",
+      image: jaylead,
     },
     {
       id: 2,
-      name: "Mark",
-      company: "GreenLife.org",
+      name: "Davis Eban",
+      company: "Founder EduGene",
       quote:
-        "The results we achieved through Twelve's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
-      image: photo1,
+        "I came for better videos. I got a complete repositioning. Twelve didn't just help me film. They helped me understand what I was actually trying to say and who I needed to become.",
+      image: logo5,
     },
     {
       id: 3,
-      name: "Sarah",
-      company: "TechVision Inc.",
+      name: "Tolu Fanibuyan Sr.",
+      company: "Founder MedXTech",
       quote:
-        "Working with Twelve was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
-      image: photo1,
+        "Before Twelve, I was making content. After, I'm shaping conversations. They refused to let me talk features and made me articulate the paradigm shift my organization represents.",
+      image: logo2,
     },
     {
       id: 4,
-      name: "Smith",
-      company: "Emporium & Co.",
+      name: "Olusegun Ajakaiye.",
+      company: "Founder FutureBoard Africa.",
       quote:
-        "Twelve's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
-      image: photo1,
+        "Twelve asked 'What do you want people to believe after watching this?' That question changed everything.",
+      image: logo4,
     },
     {
       id: 5,
-      name: "Johnson",
-      company: "GreenLife.org",
+      name: "Olusoji Busayo",
+      company: "Founder Jaffbay Digital",
       quote:
-        "The results we achieved through Twelve's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
-      image: photo1,
+        "I’ve worked with Twelve for years and she has consistently delivered excellent work across all kinds of content. From scripts, blog posts to web copy to long-form articles and more. What I appreciate most is her reliability. She meets deadlines, communicates clearly, and always makes the process easy.",
+      image: logo6,
     },
     {
       id: 6,
-      name: "Williams",
-      company: "TechVision Inc.",
+      name: "Fidel Abojei",
+      company: "Co-founde OneQ",
       quote:
-        "Working with Twelve was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
-      image: photo1,
+        "We highly recommend Twelve for her outstanding work with us at OneQ Digital. Her exceptional skills, dedication, and professionalism made her valuable to the team. Her work was always engaging, informative, and tailored to our audience. A true asset to any team.",
+      image: logo1,
+    },
+    {
+      id: 6,
+      name: "Aolat Akanni",
+      company: "CEO Prosperity Edge Consulting",
+      quote:
+        "I had a personal brand. Twelve helped me build thought leadership. They forced me to stop talking about myself and start codifying the ideas that should define my space.",
+      image: logo3,
     },
   ];
 
@@ -296,7 +304,7 @@ const Testimonial = () => {
               <motion.div className="md:h-[128px] h-auto rounded-lg ">
                 <div className="flex items-center gap-2">
                   <span className="text-4xl md:text-[80px] font-semibold text-[#FFF7EB]">
-                    <CountUp end={2800} duration={2.5} />
+                    <CountUp end={100} duration={2.5} />
                   </span>
                   <span className="text-4xl md:text-[80px] font-semibold text-white">
                     +
@@ -326,14 +334,14 @@ const Testimonial = () => {
               <motion.div className="md:h-[128px] h-auto rounded-lg ">
                 <div className="flex items-center gap-2">
                   <span className="text-4xl md:text-[80px] font-semibold text-[#FFF7EB]">
-                    <CountUp end={20000} duration={2.5} />
+                    <CountUp end={10} duration={2.5} />
                   </span>
                   <span className="text-4xl md:text-[80px] font-semibold text-white">
                     +
                   </span>
                 </div>
                 <p className="text-sm md:text-[20px] text-[#fff7eb85] mt-3">
-                  Active Social Media Followers
+                  Years Combined Experience
                 </p>
               </motion.div>
             </div>

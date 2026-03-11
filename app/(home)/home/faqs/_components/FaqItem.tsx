@@ -9,7 +9,7 @@ const { arrow } = images();
 
 interface FaqItemProps {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
   isOpen: boolean;
   onClick: () => void;
 }

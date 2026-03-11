@@ -2,41 +2,38 @@
 
 import { motion } from "framer-motion";
 import React from "react";
-import { useRouter } from "next/navigation";
 import ServiceCard from "@/app/(home)/home/services/_components/ServiceCard";
 import { images } from "@/images/images";
 
 const ServicesPage = () => {
   const { brand, digital, social, web } = images();
-  const router = useRouter();
 
   const services = [
     {
       id: 1,
-      slug: "branding-identity",
-      title: "Branding and Identity",
-      description: "Build a strong brand identity that resonates with your audience",
+      title: "Script-to-Screen",
+      description:
+        "Done-for-you personal brand video creation - from blank page to final edit.",
       image: brand,
     },
     {
       id: 2,
-      slug: "digital-marketing",
-      title: "Digital Marketing",
-      description: "Drive traffic and increase brand awareness with targeted campaigns",
+      title: "Edit My Voice",
+      description: "You record. We transform.",
       image: digital,
     },
     {
       id: 3,
-      slug: "social-media-marketing",
-      title: "Social Media Marketing",
-      description: "Craft engaging social media campaigns that convert followers into customers",
+      title: "Signature Video Package",
+      description:
+        "We’ll provide you with a powerful brand story video or a full visual refresh.",
       image: social,
     },
     {
       id: 4,
-      slug: "web-design-development",
-      title: "Web Design & Development",
-      description: "Create stunning, responsive websites that drive conversions",
+      title: "Video Course Creation",
+      description:
+        "Turn your expertise into a structured, high-quality digital product.",
       image: web,
     },
   ];
@@ -91,7 +88,7 @@ const ServicesPage = () => {
                 title={service.title}
                 description={service.description}
                 delay={index * 0.1}
-                onClick={() => router.push(`/services/${service.slug}`)}
+                onClick={() => console.log(`${service.title} clicked`)}
                 className="w-full"
               />
             </div>
@@ -107,32 +104,32 @@ const ServicesPage = () => {
           >
             <div className="flex items-start w-full px-0 md:px-10 py-8 md:pt-30">
               <h1 className="text-[27px] md:text-[80px] font-bold md:font-semibold leading-tight">
-                &quot;Good design is like a{" "}
+                &quot;Video is not a creative project. It is a systematic{" "}
                 <span
                   style={{
                     WebkitTextStroke: "2px white",
                     color: "transparent",
                   }}
                 >
-                  refrigerator{" "}
+                  growth engine.{" "}
                 </span>
-                —when it works, no one{" "}
+                —And if you use it{" "}
                 <span
                   style={{
                     WebkitTextStroke: "2px white",
                     color: "transparent",
                   }}
                 >
-                  notices
+                  intentionally
                 </span>
-                , but when it doesn&apos;t, it sure{" "}
+                , you're building authority on{" "}
                 <span
                   style={{
                     WebkitTextStroke: "2px white",
                     color: "transparent",
                   }}
                 >
-                  stinks
+                  autopilot
                 </span>
                 .&quot;
               </h1>

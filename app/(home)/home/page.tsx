@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Loader from "@/app/_components/Loader";
 import { Button } from "@/app/_components/ui/button";
@@ -16,8 +15,7 @@ import Faqs from "./faqs/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-  const { photo1, logo1, logo2, logo3, logo4, logo5, logo6 } = images();
+  const { photo1, logo11, logo1, logo2, logo3, logo4, logo5, logo6 } = images();
 
   useEffect(() => {
     // Simulate page load - adjust timing as needed
@@ -58,10 +56,10 @@ const LandingPage = () => {
               >
                 <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
                   <h1 className="text-[40px] md:text-[120px] font-semibold leading-tight">
-                    DIGITAL IDEAS
+                    NOT MORE VIDEOS
                   </h1>
                   <h5 className="text-sm md:text-[32px] font-medium mt-2 md:mt-5">
-                    for
+                    But
                   </h5>
                 </div>
                 <h1 className="text-[40px] md:text-[120px] font-semibold leading-tight">
@@ -72,9 +70,9 @@ const LandingPage = () => {
                       color: "transparent",
                     }}
                   >
-                    REAL
+                    RIGHT
                   </span>{" "}
-                  WORLD
+                  VIDEOS
                 </h1>
               </motion.div>
               <motion.div
@@ -91,8 +89,9 @@ const LandingPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
-                  Get innovative and creative to bring your business to the
-                  highest profit with our professional team of experts.
+                  We help founders, coaches, and creators turn their voice,
+                  vision, and message into scroll-stopping thought leadership
+                  videos.
                 </motion.p>
 
                 <motion.div
@@ -102,7 +101,7 @@ const LandingPage = () => {
                 >
                   <Button
                     className="w-full p-[20px_85px] text-[#14181B] bg-[#FFF7EB] text-sm md:text-base font-bold rounded-[100px] hover:scale-102 hover:bg-none hover:text-white hover:border-2 transition-transform duration-300 cursor-pointer"
-                    onClick={() => router.push("/contact")}
+                    onClick={() => console.log("Get Started clicked")}
                   >
                     Get Started
                   </Button>
@@ -114,8 +113,15 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeIn" }}
-            className="grid grid-cols-3 md:grid-cols-6 gap-1 md:gap-8 w-full justify-items-center items-center"
+            className="grid grid-cols-3 md:grid-cols-7 gap-1 md:gap-8 w-full justify-items-center items-center"
           >
+            <Image
+              src={logo11}
+              alt="Logo 11"
+              width={100}
+              height={28}
+              className="w-[60px] md:w-[142px]"
+            />
             <Image
               src={logo1}
               alt="Logo 1"

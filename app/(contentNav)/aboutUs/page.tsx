@@ -1,6 +1,8 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Loader from "@/app/_components/Loader";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ContentHero from "@/app/(contentNav)/_components/ContentHero";
@@ -9,7 +11,21 @@ import ValuePage from "./value/page";
 import Milestones from "./milestones/page";
 
 const AboutUs = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const { aboutBg, arrow, AboutUsImg1, AboutUsImg2 } = images();
+
+  useEffect(() => {
+    // Simulate page load - adjust timing as needed
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="bg-[#0a1419] h-full w-full">
@@ -64,9 +80,7 @@ const AboutUs = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex md:flex-row flex-col w-full mt-10 md:mt-20 gap-5 md:gap-10"
             >
-              <motion.p className="h-[40px] md:mr-[209px] mr-0 text-[#4AA8C4] text-[16px] border border-[#4AA8C4] rounded-full p-[8px_32px] cursor-pointer">
-                2023
-              </motion.p>
+              <motion.p className="h-[40px] md:mr-[209px] mr-0 text-[#4AA8C4] text-[16px] border border-[#4AA8C4] rounded-full p-[8px_32px] cursor-pointer"></motion.p>
               <motion.p className="text-[12px] font-light md:text-[20px] text-white md:w-[692px] w-full md:mr-[106px] mr-0">
                 At Twelve, we are{" "}
                 <span className="text-[#4AA8C4]">
@@ -123,7 +137,7 @@ const AboutUs = () => {
               className="flex flex-col items-center md:items-start"
             >
               <h2 className="text-5xl md:text-6xl font-bold text-[#FFF7EB] mb-2">
-                <Counter targetNumber={2800} isSuffix="+" duration={2000} />
+                <Counter targetNumber={100} isSuffix="+" duration={2000} />
               </h2>
               <p className="text-gray-400 text-[12px] md:text-lg">
                 Successful Projects
@@ -155,10 +169,10 @@ const AboutUs = () => {
               className="flex flex-col items-center md:items-start"
             >
               <h2 className="text-5xl md:text-6xl font-bold text-[#FFF7EB] mb-2">
-                <Counter targetNumber={20000} isSuffix="+" duration={2000} />
+                <Counter targetNumber={10} isSuffix="+" duration={2000} />
               </h2>
               <p className="text-gray-400 text-base md:text-lg">
-                Active Social Media Followers
+                Years Combined Experience
               </p>
             </motion.div>
           </div>

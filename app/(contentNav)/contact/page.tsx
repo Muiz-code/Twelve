@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Loader from "@/app/_components/Loader";
 import { Button } from "@/app/_components/ui/button";
 import Image from "next/image";
 import { images } from "@/images/images";
@@ -22,6 +23,7 @@ interface FormErrors {
 }
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -32,6 +34,15 @@ const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState("");
 
   const { contactBg } = images();
+
+  useEffect(() => {
+    // Simulate page load - adjust timing as needed
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -113,6 +124,10 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="bg-[#0a1419] h-full w-full">
