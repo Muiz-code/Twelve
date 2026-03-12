@@ -268,69 +268,15 @@ const Contact = () => {
       {/* Map Section */}
       <MapSection />
       {/* Contact Information Section */}
-      <div className="w-full bg-[#0a1419] px-3 md:px-25 py-20 md:py-15">
+      {/* <div className="w-full bg-[#0a1419] px-3 md:px-25 py-20 md:py-15">
         <motion.div
           className="flex flex-col md:flex-row items-start md:justify-between md:items-center gap-10 md:gap-7"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-        >
-          {/* Phone */}
-          <motion.div
-            className="flex flex-col gap-3 w-auto md:w-[245px]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-[#999] text-sm uppercase tracking-wider">
-              Phone
-            </p>
-            <h3 className="text-[#FFF7EB] text-2xl md:text-3xl font-medium">
-              +123-456-7890
-            </h3>
-          </motion.div>
-
-          {/* Email Address */}
-          <motion.div
-            className="flex items-center gap-10 w-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full hidden md:flex"></div>
-            <div className="flex flex-col gap-3">
-              <p className="text-[#999] text-sm uppercase tracking-wider">
-                Email Address
-              </p>
-              <h3 className="text-[#FFF7EB] text-2xl md:text-[30px] font-medium break-all">
-                hello@cratifystudio.com
-              </h3>
-            </div>
-          </motion.div>
-
-          {/* Location */}
-          <motion.div
-            className="flex items-center gap-10 w-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-2 h-2 bg-[#4AA8C4] rounded-full hidden md:flex"></div>
-            <div className="flex flex-col gap-3">
-              <p className="text-[#999] text-sm uppercase tracking-wider">
-                Location
-              </p>
-              <h3 className="text-[#FFF7EB] text-2xl md:text-[30px] font-medium">
-                123 Street, New Zealand
-              </h3>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
+        ></motion.div>
+      </div> */}
     </div>
   );
 };

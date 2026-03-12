@@ -15,7 +15,8 @@ import Faqs from "./faqs/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { photo1, logo11, logo1, logo2, logo3, logo4, logo5, logo6 } = images();
+  const { photo1, photo2, logo11, logo1, logo2, logo3, logo4, logo5, logo6 } =
+    images();
 
   useEffect(() => {
     // Simulate page load - adjust timing as needed
@@ -42,7 +43,7 @@ const LandingPage = () => {
               className="w-full md:w-55  md:h-84 hidden md:flex"
             >
               <Image
-                src={photo1}
+                src={photo2}
                 alt={"Side image in gradients"}
                 className="hidden md:flex"
               />
@@ -180,7 +181,6 @@ const LandingPage = () => {
       <section className="w-full">
         <Testimonial />
       </section>
-
       <section className="w-full">
         <Faqs />
       </section>

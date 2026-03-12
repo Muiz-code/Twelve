@@ -86,7 +86,7 @@ const Footer = () => {
               <ul className="space-y-4 text-sm text-gray-400">
                 <li>
                   <Link
-                    href="/about"
+                    href="/aboutUs"
                     className="hover:text-white transition-colors"
                   >
                     About Us
@@ -94,16 +94,16 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/testimonials"
+                    href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    Testimonials
+                    Services
                   </Link>
                 </li>
 
                 <li>
                   <Link
-                    href="/portfolio"
+                    href="/projects"
                     className="hover:text-white transition-colors"
                   >
                     Projects Portfolio
@@ -167,7 +167,7 @@ const Footer = () => {
                   Phone Number
                 </li> */}
                 <li className="hover:text-white transition-colors cursor-pointer">
-                  adenikeomope86@gmail.com
+                  twelve@twelvevideos.com
                 </li>
                 <li className="hover:text-white transition-colors cursor-pointer">
                   Social Media

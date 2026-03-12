@@ -27,21 +27,41 @@ const FaqsPage = () => {
         "You know video works but you don’t want to waste time guessing how.",
       ],
     },
-    // {
-    //   question: "How long does it take to complete?",
-    //   answer:
-    //     "We harness the power of social media platforms to expand your reach, engage your audience, and drive brand awareness towards your business' profitable future.",
-    // },
-    // {
-    //   question: "What is the cost of your services?",
-    //   answer:
-    //     "Our pricing varies depending on the scope of the project. We offer customized quotes to fit your specific needs and budget.",
-    // },
-    // {
-    //   question: "How do I get started with Twelve?",
-    //   answer:
-    //     "Getting started is easy! Simply contact us through our website to schedule a free consultation. We'll discuss your project and provide a detailed proposal.",
-    // },
+    {
+      question: "What Type of Videos does Twelve: The Videohouse Create?",
+      answer: [
+        "We don’t just “create video.",
+        "We help you figure out what to say, how to say it, and where it will work best.",
+        "We build:",
+        "1. We don’t just “create video.",
+        "2. We help you figure out what to say, how to say it, and where it will work best.",
+        "3. We build:",
+      ],
+    },
+    {
+      question: "Why Should I Work with Twelve: The Videohouse?",
+      answer: [
+        "It's simple. We'll push you from:",
+        "- Lack of control and authenticity to more aligned visibility",
+        "- Frustration to more clients / growth",
+        "- Being the insecure brand to looking professional online",
+        "- Incessant burnout to having enough time to onboard new clients",
+        "- Doubting yourself to showing up confidently",
+        "- Chaos to an highly effective, seamless content system",
+      ],
+    },
+    {
+      question: "Who can work with Twelve?",
+      answer: [
+        "We value time - yours and ours. That’s why we’re selective about who we work with. Come work with us if:",
+        "- Have a proven service, program, or offer",
+        "- Understand that brand + video are growth tools, not just marketing fluff",
+        "- Are done trying to figure it out alone",
+        "- Want a done-for-you system that makes you look and sound like the leader they are",
+        "- Crave clarity over content clutter and conversions over empty views",
+        "- Care about showing up with video that looks, feels, and performs like a premium brand",
+      ],
+    },
   ];
 
   const handleItemClick = (index: number) => {
@@ -74,19 +94,19 @@ const FaqsPage = () => {
           >
             <div className="flex items-start gap-2 md:gap-4 w-full md:w-[804px]">
               <h1 className="text-2xl md:text-[80px] font-bold md:font-semibold leading-tight">
-                FREQUENTLY{" "}
+                QUESTIONS{" "}
                 <span
                   style={{
                     WebkitTextStroke: "2px white",
                     color: "transparent",
                   }}
                 >
-                  ASKED{" "}
+                  OTHER{" "}
                 </span>
               </h1>
             </div>
             <h1 className="text-2xl md:text-[80px] font-bold md:font-semibold leading-tight">
-              QUESTIONS BY CLIENTS
+              CLIENTS ASKED
             </h1>
           </motion.div>
 
