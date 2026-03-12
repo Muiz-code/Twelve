@@ -262,17 +262,26 @@ const Testimonial = () => {
             className="relative w-full aspect-video bg-black overflow-hidden group"
           >
             {/* Video Placeholder */}
-            <video
+
+            {/* <iframe
               className="w-full h-full object-cover"
-              poster="https://via.placeholder.com/800x450"
-            >
-              {/* Add your video source here later */}
-              <source src="" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              src="https://youtube.com/shorts/WUDglBQg7U4?si=5RzOfqCM3Tbo1Gsa"
+            ></iframe> */}
+
+            <div className="w-full h-full object-cover">
+              <iframe
+                // src="https://www.youtube.com/embed/tN3F0NwmBc8?rel=0"
+                src="https://youtube.com/embed/WUDglBQg7U4?si=iadWB8j2pFvxnV1q"
+                title=""
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
 
             {/* Play Button Overlay */}
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+            {/* <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -286,7 +295,7 @@ const Testimonial = () => {
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                 </svg>
               </motion.button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
 

@@ -322,24 +322,59 @@ const FaqSection = () => {
 
   const faqs = [
     {
-      question: "What services does Twelve provide?",
-      answer:
-        "We provide a wide range of services including web design, web development, branding, social media marketing, and SEO.",
+      question: "How Do I Know Twelve's Solutions are for Me?",
+      answer: [
+        "You’re posting, but it’s not leading to growth, trust, or leads.",
+        "Your videos feel generic or not like you at all.",
+        "You’re exhausted trying to keep up with",
+        "You’re exhausted trying to keep up with content that doesn’t move the needle",
+        "You know video works but you don’t want to waste time guessing how.",
+      ],
     },
     {
-      question: "How long does it take to complete?",
-      answer:
-        "We harness the power of social media platforms to expand your reach, engage your audience, and drive brand awareness towards your business' profitable future.",
+      question: "How Do I Know Twelve's Solutions are for Me?",
+      answer: [
+        "You’re posting, but it’s not leading to growth, trust, or leads.",
+        "Your videos feel generic or not like you at all.",
+        "You’re exhausted trying to keep up with",
+        "You’re exhausted trying to keep up with content that doesn’t move the needle",
+        "You know video works but you don’t want to waste time guessing how.",
+      ],
     },
     {
-      question: "What is the cost of your services?",
-      answer:
-        "Our pricing varies depending on the scope of the project. We offer customized quotes to fit your specific needs and budget.",
+      question: "What Type of Videos does Twelve: The Videohouse Create?",
+      answer: [
+        "We don’t just “create video.",
+        "We help you figure out what to say, how to say it, and where it will work best.",
+        "We build:",
+        "1. We don’t just “create video.",
+        "2. We help you figure out what to say, how to say it, and where it will work best.",
+        "3. We build:",
+      ],
     },
     {
-      question: "How do I get started with Twelve?",
-      answer:
-        "Getting started is easy! Simply contact us through our website to schedule a free consultation. We'll discuss your project and provide a detailed proposal.",
+      question: "Why Should I Work with Twelve: The Videohouse?",
+      answer: [
+        "It's simple. We'll push you from:",
+        "- Lack of control and authenticity to more aligned visibility",
+        "- Frustration to more clients / growth",
+        "- Being the insecure brand to looking professional online",
+        "- Incessant burnout to having enough time to onboard new clients",
+        "- Doubting yourself to showing up confidently",
+        "- Chaos to an highly effective, seamless content system",
+      ],
+    },
+    {
+      question: "Who can work with Twelve?",
+      answer: [
+        "We value time - yours and ours. That’s why we’re selective about who we work with. Come work with us if:",
+        "- Have a proven service, program, or offer",
+        "- Understand that brand + video are growth tools, not just marketing fluff",
+        "- Are done trying to figure it out alone",
+        "- Want a done-for-you system that makes you look and sound like the leader they are",
+        "- Crave clarity over content clutter and conversions over empty views",
+        "- Care about showing up with video that looks, feels, and performs like a premium brand",
+      ],
     },
   ];
 
@@ -361,18 +396,18 @@ const FaqSection = () => {
         className="mt-16 md:mt-24 mb-10 md:mb-20 flex flex-col md:justify-start justify-center gap-2 md:gap-7 w-full"
       >
         <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold text-[#FFF7EB]">
-          FREQUENTLY{" "}
+          QUESTIONNS{" "}
           <span
             style={{
               WebkitTextStroke: "2px #FFF7EB",
               color: "transparent",
             }}
           >
-            ASKED
+            OTHER
           </span>
         </h2>
         <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold text-[#FFF7EB]">
-          QUESTIONS BY CLIENTS
+          CLIENTS ASKED
         </h2>
       </motion.div>
 
@@ -382,7 +417,13 @@ const FaqSection = () => {
           <FaqItem
             key={index}
             question={faq.question}
-            answer={faq.answer}
+            answer={
+              <ul>
+                {faq.answer.map((ans, idx) => (
+                  <li key={idx}>{ans}</li>
+                ))}
+              </ul>
+            }
             isOpen={openIndex === index}
             onClick={() => handleItemClick(index)}
           />

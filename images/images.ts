@@ -1,5 +1,6 @@
 import matrix from "./assets/Matix.png";
 import photo1 from "./assets/Photo 1.png";
+import photo2 from "./assets/Twelve logo.png";
 import jaylead from "./assets/jaylead.png";
 import logo11 from "./assets/Logo 11.png";
 import logo1 from "./assets/Logo 1.png";
@@ -34,6 +35,7 @@ export const images = () => {
   return {
     matrix,
     photo1,
+    photo2,
     jaylead,
     logo11,
     logo1,
