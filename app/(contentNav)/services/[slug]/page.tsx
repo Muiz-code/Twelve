@@ -21,87 +21,45 @@ const ServiceDetailPage = () => {
 
   const SERVICES: ServiceDetail[] = [
     {
-      slug: "branding-identity",
-      title: "Branding & Identity",
+      slug: "script-to-screen",
+      title: "SCRIPT-TO-SCREEN",
       description:
-        "We create distinctive brand identities that capture your essence and resonate with your target audience, building lasting connections through strategic design.",
+        "Done-for-you personal brand video creation We help founders, coaches, and creators turn their ideas into high-impact personal brand videos from a blank page to final edit. ",
       image: brand,
       details: [
-        "Logo design and brand mark creation",
-        "Brand guidelines and style systems",
-        "Typography and color palette selection",
-        "Brand voice and messaging strategy",
-        "Stationery and collateral design",
+        "Concept development and scripting",
+        "On-location or remote shooting",
+        "Professional editing and post-production",
+        "Custom graphics and animations",
+        "Final delivery in multiple formats",
       ],
     },
     {
-      slug: "digital-marketing",
-      title: "Digital Marketing",
+      slug: "edit-my-voice",
+      title: "EDIT MY VOICE",
       description:
-        "We develop customized digital marketing strategies that align with your business goals, ensuring maximum impact and ROI that suits your business needs and brand identity.",
+        "Already creating content but don’t have the time (or desire) to edit it? Send us your raw footage or voice recordings. We refine, structure, and package your ideas into binge-worthy videos that reflect your tone, intelligence, and brand.",
       image: digital,
       details: [
-        "Search engine optimization (SEO)",
-        "Pay-per-click advertising (PPC)",
-        "Email marketing campaigns",
-        "Analytics and performance reporting",
-        "Conversion rate optimization",
+        "Raw footage and audio analysis",
+        "Narrative structuring and storytelling",
+        "Color correction and grading",
+        "Sound design and mixing",
+        "Adding intros, outros, and call-to-actions",
       ],
     },
     {
-      slug: "social-media-marketing",
-      title: "Social Media Marketing",
+      slug: "signature-video-package",
+      title: "SIGNATURE VIDEO PACKAGE",
       description:
-        "We craft engaging social media campaigns that build community, drive engagement, and convert followers into loyal customers across all major platforms.",
+        "Your brand story, done right. We'll provide you with a powerful anchor video or full visual reset.",
       image: social,
       details: [
-        "Social media strategy and planning",
-        "Content creation and scheduling",
-        "Community management",
-        "Influencer partnerships",
-        "Paid social advertising",
-      ],
-    },
-    {
-      slug: "content-marketing",
-      title: "Content Marketing",
-      description:
-        "We create compelling content strategies that tell your brand story, attract your ideal audience, and establish your authority in your industry.",
-      image: grow,
-      details: [
-        "Content strategy development",
-        "Blog and article writing",
-        "Video and multimedia production",
-        "Infographics and visual content",
-        "Content distribution and promotion",
-      ],
-    },
-    {
-      slug: "web-design-development",
-      title: "Web Design & Development",
-      description:
-        "We design and develop stunning, responsive websites that provide seamless user experiences and drive conversions for your business.",
-      image: web,
-      details: [
-        "UI/UX design and prototyping",
-        "Responsive web development",
-        "E-commerce solutions",
-        "CMS integration",
-        "Performance optimization",
-      ],
-    },
-    {
-      slug: "mobile-app-development",
-      title: "Mobile App Design & Development",
-      description:
-        "We create intuitive mobile applications with beautiful interfaces that engage users and deliver exceptional experiences on iOS and Android.",
-      image: grow,
-      details: [
-        "iOS and Android app development",
-        "UI/UX design for mobile",
-        "App store optimization",
-        "Push notifications and engagement",
-        "Maintenance and support",
+        "In-depth brand discovery session",
+        "Development of a signature visual style",
+        "Creation of a cornerstone brand video",
+        "Full visual reset for your online presence",
+        "A suite of supporting video assets",
       ],
     },
   ];

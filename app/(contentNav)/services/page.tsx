@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loader from "@/app/_components/Loader";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { images } from "@/images/images";
 import ContentHero from "@/app/(contentNav)/_components/ContentHero";
 import SectionIndicator from "@/app/(contentNav)/_components/SectionIndicator";
@@ -20,6 +21,17 @@ const Services = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeService, setActiveService] = useState<number | null>(1);
   const { servicesBg, brand, digital, social, web, grow } = images();
+
+  const slugify = (text: string) => {
+    return text
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+      .replace(/\-\-+/g, "-") // Replace multiple - with single -
+      .replace(/^-+/, "") // Trim - from start of text
+      .replace(/-+$/, ""); // Trim - from end of text
+  };
 
   const SERVICES: Service[] = [
     {
@@ -97,107 +109,111 @@ const Services = () => {
       <div className="min-h-auto w-full bg-[#0a1419] px-4 md:px-25 py-10 md:py-30">
         <div className="max-w-7xl mx-auto relative space-y-5">
           {SERVICES.map((service, index) => (
-            <motion.div
+            <Link
+              href={`/services/${slugify(service.title)}`}
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              onViewportEnter={() => setActiveService(service.id)}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="relative"
             >
-              {/* Service Item */}
-              <div
-                className="border-t border-[#2a3a40] cursor-pointer min-h-[10px]"
-                onMouseEnter={() => setActiveService(service.id)}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                onViewportEnter={() => setActiveService(service.id)}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: false, amount: 0.5 }}
+                className="relative"
               >
-                <div className="py-8">
-                  <div className="flex items-start justify-between gap-6">
-                    {/* Left Side - Title and Description */}
-                    <div className="flex-1 md:max-w-[60%]">
-                      <motion.h3
-                        className={`text-xl md:text-3xl font-medium transition-colors duration-300 ${
+                {/* Service Item */}
+                <div
+                  className="border-t border-[#2a3a40] cursor-pointer min-h-[10px]"
+                  onMouseEnter={() => setActiveService(service.id)}
+                >
+                  <div className="py-8">
+                    <div className="flex items-start justify-between gap-6">
+                      {/* Left Side - Title and Description */}
+                      <div className="flex-1 md:max-w-[60%]">
+                        <motion.h3
+                          className={`text-xl md:text-3xl font-medium transition-colors duration-300 ${
+                            activeService === service.id
+                              ? "text-[#4AA8C4]"
+                              : "text-[#FFF7EB]"
+                          }`}
+                        >
+                          {service.title}
+                        </motion.h3>
+
+                        {/* Description - Only visible when active */}
+                        <AnimatePresence>
+                          {activeService === service.id && (
+                            <motion.p
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="text-[#999] text-sm md:text-base mt-4 md:max-w-md leading-relaxed"
+                            >
+                              {service.description}
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Arrow Icon */}
+                      <motion.div
+                        className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors duration-300 ${
                           activeService === service.id
                             ? "text-[#4AA8C4]"
                             : "text-[#FFF7EB]"
                         }`}
+                        animate={{
+                          rotate: activeService === service.id ? 45 : 0,
+                        }}
+                        transition={{ duration: 0.3 }}
                       >
-                        {service.title}
-                      </motion.h3>
-
-                      {/* Description - Only visible when active */}
-                      <AnimatePresence>
-                        {activeService === service.id && (
-                          <motion.p
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="text-[#999] text-sm md:text-base mt-4 md:max-w-md leading-relaxed"
-                          >
-                            {service.description}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
+                        <svg
+                          className="w-5 h-5 md:w-6 md:h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M7 7h10v10M7 17L17 7"
+                          />
+                        </svg>
+                      </motion.div>
                     </div>
-
-                    {/* Arrow Icon */}
-                    <motion.div
-                      className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors duration-300 ${
-                        activeService === service.id
-                          ? "text-[#4AA8C4]"
-                          : "text-[#FFF7EB]"
-                      }`}
-                      animate={{
-                        rotate: activeService === service.id ? 45 : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <svg
-                        className="w-5 h-5 md:w-6 md:h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M7 7h10v10M7 17L17 7"
-                        />
-                      </svg>
-                    </motion.div>
                   </div>
                 </div>
-              </div>
 
-              {/* Image - Positioned absolutely to the right, overlapping */}
-              <AnimatePresence>
-                {activeService === service.id && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3 }}
-                    className="hidden md:block absolute right-0 top-0 w-[252px] h-[300px] -mt-16 z-10"
-                    style={{ transform: "translateY(-20%)" }}
-                  >
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={292}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
+                {/* Image - Positioned absolutely to the right, overlapping */}
+                <AnimatePresence>
+                  {activeService === service.id && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.3 }}
+                      className="hidden md:block absolute right-0 top-0 w-[252px] h-[300px] -mt-16 z-10"
+                      style={{ transform: "translateY(-20%)" }}
+                    >
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={292}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Last item bottom border */}
+                {index === SERVICES.length - 1 && (
+                  <div className="border-t border-[#2a3a40]"></div>
                 )}
-              </AnimatePresence>
-
-              {/* Last item bottom border */}
-              {index === SERVICES.length - 1 && (
-                <div className="border-t border-[#2a3a40]"></div>
-              )}
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
