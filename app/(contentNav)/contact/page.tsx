@@ -33,7 +33,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
-  const { contactBg } = images();
+  const { contactBg, maprep } = images();
 
   useEffect(() => {
     // Simulate page load - adjust timing as needed
@@ -266,7 +266,11 @@ const Contact = () => {
       </div>
 
       {/* Map Section */}
-      <MapSection />
+
+      <Image src={maprep} alt={"map replactement"} className=" w-full flex" />
+
+      {/* <MapSection /> */}
+
       {/* Contact Information Section */}
       {/* <div className="w-full bg-[#0a1419] px-3 md:px-25 py-20 md:py-15">
         <motion.div

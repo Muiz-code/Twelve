@@ -30,12 +30,14 @@ import excellence from "./assets/excellence.png";
 import innovation from "./assets/innovation.png";
 import teamwork from "./assets/Teamwork.png";
 import grow from "./assets/growurbusiness.jpg";
+import maprep from "./assets/maprep.png";
 
 export const images = () => {
   return {
     matrix,
     photo1,
     photo2,
+    maprep,
     jaylead,
     logo11,
     logo1,
