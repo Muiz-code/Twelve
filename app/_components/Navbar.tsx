@@ -14,6 +14,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "ABOUT", href: "/aboutUs" },
   { label: "SERVICES", href: "/services" },
   { label: "PROJECTS", href: "/projects" },
+  { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -52,7 +53,7 @@ export default function Navbar() {
         </div>
       )}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-none backdrop-blur-md px-4 md:px-25 md:py-2.5 w-full">
-        <div className=" md:w-340 w-full">
+        <div className="w-full ">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link

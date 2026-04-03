@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import ScrollToTop from "./_components/ScrollToTop";
+import ConditionalShell from "./_components/ConditionalShell";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -26,9 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
         <ScrollToTop />
-        <Navbar />
-        {children}
-        <Footer />
+        <ConditionalShell>{children}</ConditionalShell>
       </body>
     </html>
   );
