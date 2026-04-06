@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
 import { slugify, upsertPost, uploadCoverImage } from "@/lib/blog";
 import AdminLayout from "@/components/AdminLayout";
 import PostEditor from "@/components/PostEditor";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import toast from "react-hot-toast";
 import Image from "next/image";
 
@@ -20,6 +20,7 @@ const CATEGORIES = [
 ];
 
 export default function NewPostPage() {
+  useAdminAuth();
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -36,12 +37,6 @@ export default function NewPostPage() {
     tags: [] as string[],
     published: false,
   });
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) router.push("/admin/login");
-    });
-  }, [router]);
 
   const set = (field: string, value: unknown) =>
     setForm((prev) => ({ ...prev, [field]: value }));

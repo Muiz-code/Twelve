@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Toaster } from "react-hot-toast";
+import ToasterProvider from "./_components/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Admin — Twelve Blog",
 };
 
-// This layout intentionally omits the root Navbar/Footer override —
-// see app/layout.tsx where admin routes are excluded from those wrappers.
 export default function AdminRootLayout({
   children,
 }: {
@@ -14,7 +12,7 @@ export default function AdminRootLayout({
 }) {
   return (
     <>
-      <Toaster position="top-right" />
+      <ToasterProvider />
       {children}
     </>
   );

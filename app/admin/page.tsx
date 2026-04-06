@@ -1,25 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
 import { Post, getAllPosts, deletePost, togglePublished } from "@/lib/blog";
 import AdminLayout from "@/components/AdminLayout";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import toast from "react-hot-toast";
 
 export default function AdminDashboard() {
-  const router = useRouter();
+  useAdminAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) router.push("/admin/login");
-    });
     fetchPosts();
-  }, [router]);
+  }, []);
 
   const fetchPosts = async () => {
     setLoading(true);

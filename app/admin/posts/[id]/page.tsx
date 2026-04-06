@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { useParams, useRouter } from "next/navigation";
 import { slugify, getPostById, upsertPost, uploadCoverImage } from "@/lib/blog";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import AdminLayout from "@/components/AdminLayout";
 import PostEditor from "@/components/PostEditor";
 import toast from "react-hot-toast";
@@ -20,6 +20,7 @@ const CATEGORIES = [
 ];
 
 export default function EditPostPage() {
+  useAdminAuth();
   const router = useRouter();
   const { id } = useParams<{ id: string }>();
   const [saving, setSaving] = useState(false);
@@ -41,11 +42,8 @@ export default function EditPostPage() {
   });
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) router.push("/admin/login");
-    });
     loadPost();
-  }, [id, router]);
+  }, [id]);
 
   const loadPost = async () => {
     const post = await getPostById(id);
